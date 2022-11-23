@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png" />
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="style.css" />
+        <title>Rikard | E-commerce product page</title>
+    </head>
+    <body>
+        <div class="cover"></div>
+        <!-- NAVBAR -->
+        <nav>
+            <div class="menu">
+                <!-- MENU BTN -->
+                <button class="menu-open-btn menu-btn">
+                    <img
+                        id="open-menu-id"
+                        src="/images/icon-menu.svg"
+                        alt="Menu-open-icon" />
+                </button>
+                <h1 class="nav-logo">SNEAKERS</h1>
+                <!-- NAV-LINKS (Add .show-side-menu to display menu)-->
+                <div class="nav-links">
+                    <a class="link" href="#collections">Collections</a>
+                    <a class="link" href="#Men">Men</a>
+                    <a class="link" href="#Women">Women</a>
+                    <a class="link" href="#About">About</a>
+                    <a class="link" href="#Contact">Contact</a>
+                </div>
+            </div>
+            <!-- CART AND AVATAR -->
+            <div class="cart-container">
+                <div class="cart">
+                    <img
+                        id="open-cart-btn"
+                        src="/images/icon-cart.svg"
+                        alt="" />
+                    <div id="open-cart-btn" class="cart-count">0</div>
+                </div>
+                <div class="avatar">
+                    <img src="/images/image-avatar.png" alt="" />
+                </div>
+                <div class="cart-item-container">
+                    <h4>Cart</h4>
+                    <div class="cart-items-container">
+                        <!-- <div class="cart-item">
+                            <img
+                                class="item-thumbnail"
+                                src="/images/image-product-1-thumbnail.jpg"
+                                alt="cart-img" />
+                            <div class="cart-item-text">
+                                <h5 class="cart-item-name">
+                                    Autumn Limited Edition
+                                </h5>
+                                <p class="item-cart-price">
+                                    <span class="item-price">$125.00</span> x
+                                    <span class="item-amount">3</span>
+                                    <span class="item-total">$375.00</span>
+                                </p>
+                            </div>
+                            <button class="delete-item-btn">
+                                <img src="/images/icon-delete.svg" alt="" />
+                            </button>
+                        </div> -->
+                    </div>
+                    <button class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </nav>
+        <aside class="side-menu">
+            <button class="menu-close-btn menu-btn">
+                <img
+                    id="open-menu-id"
+                    src="/images/icon-close.svg"
+                    alt="Menu-close-icon" />
+            </button>
+            <a href="#collections">Collections</a>
+            <a href="#Men">Men</a>
+            <a href="#Women">Women</a>
+            <a href="#About">About</a>
+            <a href="#Contact">Contact</a>
+        </aside>
+        <main>
+            <!-- ACTIVE IMG -->
+            <div class="larger-picture-container">
+                <img
+                    id="active-img-btn"
+                    class="active-img-btn close"
+                    src="/images/icon-close.svg"
+                    alt="close-icon" />
+                <img
+                    class="prev-btn"
+                    src="/images/icon-previous.svg"
+                    alt="prev-icon" />
+                <img
+                    class="next-btn"
+                    src="/images/icon-next.svg"
+                    alt="next-icon" />
+                <img
+                    class="top-img-active"
+                    src="/images/image-product-1.jpg"
+                    alt="" />
+                <div class="product-thumbnails-active">
+                    <img
+                        class="thumbnail-active checked"
+                        src="/images/image-product-1-thumbnail.jpg"
+                        alt="thumbnail1" />
+                    <img
+                        class="thumbnail-active"
+                        src="/images/image-product-2-thumbnail.jpg"
+                        alt="thumbnail2" />
+                    <img
+                        class="thumbnail-active"
+                        src="/images/image-product-3-thumbnail.jpg"
+                        alt="thumbnail3" />
+                    <img
+                        class="thumbnail-active"
+                        src="/images/image-product-4-thumbnail.jpg"
+                        alt="thumbnail4" />
+                </div>
+            </div>
+            <!-- TOP-IMG -->
+            <div class="product-img-container">
+                <div class="top-img-container">
+                    <img
+                        class="top-img"
+                        src="/images/image-product-1.jpg"
+                        alt="" />
+                    <button
+                        id="active-img-btn"
+                        class="product-img-btn active-img-btn">
+                        show more
+                    </button>
+                </div>
+                <div class="product-thumbnails">
+                    <img
+                        class="thumbnail checked"
+                        src="/images/image-product-1-thumbnail.jpg"
+                        alt="thumbnail1" />
+                    <img
+                        class="thumbnail"
+                        src="/images/image-product-2-thumbnail.jpg"
+                        alt="thumbnail2" />
+                    <img
+                        class="thumbnail"
+                        src="/images/image-product-3-thumbnail.jpg"
+                        alt="thumbnail3" />
+                    <img
+                        class="thumbnail"
+                        src="/images/image-product-4-thumbnail.jpg"
+                        alt="thumbnail4" />
+                </div>
+            </div>
+            <div class="product-info-container">
+                <p class="company-name">All Laced Up Company</p>
+                <h2 class="shoe-name">Autumn Limited Edition</h2>
+                <p class="shoe-info">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Vitae porro tempore animi, sint aspernatur ullam numquam
+                    consequatur. Soluta, laborum quod.
+                </p>
+                <div class="shoe-price-container">
+                    <div class="discount-container">
+                        <p class="current-price">$125.00</p>
+                        <p class="discount-percentage">50%</p>
+                    </div>
+                    <p class="ordinary-price">$250.00</p>
+                </div>
+                <div class="quantity-container">
+                    <img
+                        id="minus-icon"
+                        src="/images/icon-minus.svg"
+                        alt="plus-icon" />
+                    <p class="quantity-count">3</p>
+                    <img
+                        id="plus-icon"
+                        src="/images/icon-plus.svg"
+                        alt="plus-icon" />
+                </div>
+                <button id="add-cart-btn" class="add-cart-btn">
+                    <img
+                        src="/images/icon-cart-in-button.svg"
+                        alt="cart-icon" />
+                    Add to cart
+                </button>
+            </div>
+        </main>
+    </body>
+    <script src="/script.js"></script>
+</html>

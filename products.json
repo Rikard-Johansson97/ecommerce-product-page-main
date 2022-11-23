@@ -1,0 +1,96 @@
+{
+    "shoes": [
+        {
+            "name": "Autumn Limited Edition",
+            "company": "All Laced Up.",
+            "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur quibusdam explicabo reprehenderit hic ipsam nihil porro nisi reiciendis delectus ullam laborum similique corporis fugit pariatur, sequi officia quae eligendi eveniet tempore dicta beatae id adipisci. Veniam eligendi dolor odit.",
+            "price": {
+                "ordinary": 250,
+                "discount": 0.5
+            },
+            "img":{
+                "thumbnail":[
+                     "images/image-product-1-thumbnail.jpg",
+                     "images/image-product-2-thumbnail.jpg",
+                     "images/image-product-3-thumbnail.jpg",
+                     "images/image-product-4-thumbnail.jpg"
+                ],
+                "large":[ 
+                    "images/image-product-1.jpg",
+                    "images/image-product-2.jpg",
+                    "images/image-product-3.jpg",
+                    "images/image-product-4.jpg"
+                ]
+            }   
+        },
+        {
+            "name": "Winter lite Edition",
+            "company": "Shooz Factory",
+            "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur quibusdam explicabo reprehenderit hic ipsam nihil porro nisi reiciendis delectus ullam laborum similique corporis fugit pariatur, sequi officia quae eligendi eveniet tempore dicta beatae id adipisci. Veniam eligendi dolor odit.",
+            "price": {
+                "ordinary": 120,
+                "discount": 0.3
+            },
+            "img":{
+                "thumbnail":[
+                     "images/image-product-1-thumbnail.jpg",
+                     "images/image-product-2-thumbnail.jpg",
+                     "images/image-product-3-thumbnail.jpg",
+                     "images/image-product-4-thumbnail.jpg"
+                ],
+                "large":[ 
+                    "images/image-product-1.jpg",
+                    "images/image-product-2.jpg",
+                    "images/image-product-3.jpg",
+                    "images/image-product-4.jpg"
+                ]
+            }   
+        },
+        {
+            "name": "Spring Exclusive Edition",
+            "company": "The Comfort Zone",
+            "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur quibusdam explicabo reprehenderit hic ipsam nihil porro nisi reiciendis delectus ullam laborum similique corporis fugit pariatur, sequi officia quae eligendi eveniet tempore dicta beatae id adipisci. Veniam eligendi dolor odit.",
+            "price": {
+                "ordinary": 350,
+                "discount": 0.1
+            },
+            "img":{
+                "thumbnail":[
+                     "images/image-product-1-thumbnail.jpg",
+                     "images/image-product-2-thumbnail.jpg",
+                     "images/image-product-3-thumbnail.jpg",
+                     "images/image-product-4-thumbnail.jpg"
+                ],
+                "large":[ 
+                    "images/image-product-1.jpg",
+                    "images/image-product-2.jpg",
+                    "images/image-product-3.jpg",
+                    "images/image-product-4.jpg"
+                ]
+            }   
+        },
+        {
+            "name": "Summer Clean Edition",
+            "company": "Tippy-Toes Shoe Store",
+            "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur quibusdam explicabo reprehenderit hic ipsam nihil porro nisi reiciendis delectus ullam laborum similique corporis fugit pariatur, sequi officia quae eligendi eveniet tempore dicta beatae id adipisci. Veniam eligendi dolor odit.",
+            "price": {
+                "ordinary": 160,
+                "discount": 0.4
+            },
+            "img":{
+                "thumbnail":[
+                     "images/image-product-1-thumbnail.jpg",
+                     "images/image-product-2-thumbnail.jpg",
+                     "images/image-product-3-thumbnail.jpg",
+                     "images/image-product-4-thumbnail.jpg"
+                ],
+                "large":[ 
+                    "images/image-product-1.jpg",
+                    "images/image-product-2.jpg",
+                    "images/image-product-3.jpg",
+                    "images/image-product-4.jpg"
+                ]
+            }   
+        }
+    ]
+}
