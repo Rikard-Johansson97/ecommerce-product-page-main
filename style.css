@@ -462,16 +462,14 @@ nav {
     .nav-links{
         display: flex;
         flex-direction: row;
-        position: static;
         gap: 1.5rem;
-        top: 0;
-        left: -20rem;
         padding: 2rem;
         z-index: 12;
     }
     .nav-links a {
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        font-weight: 500;
         color: black;
     }
     .menu-open-btn{

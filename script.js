@@ -14,7 +14,7 @@ const largerImageContainer = document.querySelector(
 );
 // Main page product text
 const displayLargeImg = document.querySelector(".top-img");
-const displayThumbnail = document.querySelector(".thumbnail");
+const displayThumbnail = document.querySelectorAll(".thumbnail");
 const displayCompanyName = document.querySelector(".company-name");
 const displayShoeName = document.querySelector(".shoe-name");
 const displayShoeInfo = document.querySelector(".shoe-info");
@@ -25,15 +25,19 @@ const displayQuantityCount = document.querySelector(".quantity-count");
 // Cart container
 const cartItem = document.querySelector(".cart-items-container");
 const displayCartCount = document.querySelector(".cart-count");
-
+// Active shoe status
+let displayActiveImg = document.querySelector(".top-img-active");
+const displayActiveThumb = document.querySelectorAll(".thumbnail-active");
 // Counter for witch shoe that displays
 let shoeIndex = 0;
 let quantityCount = 0; //? quantity to add to cart
 let cartCount = 0;
 let imageIndex = 0;
 
+let activeImageIndex = 0;
+
 // TODO | Functions here
-const toggleSideMenu = (check) => {
+const toggleSideMenu = () => {
     sideMenu.classList.toggle("show-side-menu");
 };
 const toggleDarkOverlay = () => {
@@ -41,30 +45,6 @@ const toggleDarkOverlay = () => {
 };
 const toggleCartMenu = () => {
     cartContainer.classList.toggle("show-cart");
-};
-// TODO | Fetch() json file
-const fetchProductData = async () => {
-    const response = await fetch("products.json");
-    if (response.status !== 200) throw new Error("Could not fetch data");
-    const productData = await response.json();
-    return productData;
-};
-
-//? displays product on main page!
-const displayProduct = async (i, imgIdx) => {
-    const productData = await fetchProductData();
-    let shoe = productData.shoes[i];
-    displayLargeImg.src = shoe.img.large[imgIdx];
-    displayThumbnail.innerHTML = shoe.img.thumbnail[imgIdx];
-    displayCompanyName.innerHTML = shoe.company;
-    displayShoeName.innerHTML = shoe.name;
-    displayShoeInfo.innerHTML = shoe.info;
-    displayCurrentPrice.innerHTML = `$${
-        shoe.price.ordinary - shoe.price.ordinary * shoe.price.discount
-    }`;
-    displayDiscount.innerHTML = `${shoe.price.discount * 100} %`;
-    displayOrdinaryPrice.innerHTML = `$${shoe.price.ordinary}`;
-    displayQuantityCount.innerHTML = `${quantityCount}`;
 };
 
 //? Adds current item on main page to cart. i = shoeIndex | j = quantityCount;
@@ -100,6 +80,81 @@ const addToCart = async (i, q) => {
     displayProduct(shoeIndex, imageIndex);
 };
 
+const displayActiveProduct = async (i, target) => {
+    const productData = await fetchProductData();
+    displayActiveThumb.forEach((item) => {
+        item.classList.remove("checked");
+    });
+    if (i === shoeIndex) {
+        console.log("Add");
+        displayActiveThumb[i].classList.add("checked");
+        displayActiveImg.src = productData.shoes[i].img.large[i];
+    }
+    if (target) {
+        target.classList.add("checked");
+        for (let j = 0; j < displayThumbnail.length; j++) {
+            if (displayActiveThumb[j].classList.contains("checked")) {
+                displayActiveImg.src = productData.shoes[j].img.large[j];
+            }
+        }
+    }
+};
+
+const checkThumbnail = (id) => {
+    displayThumbnail.forEach((img) => {
+        img.classList.remove("checked");
+    });
+    id.classList.add("checked");
+    console.log(id);
+    for (let i = 0; i < displayThumbnail.length; i++) {
+        if (displayThumbnail[i].classList.contains("checked")) {
+            shoeIndex = i;
+            imageIndex = i;
+        }
+    }
+    displayProduct(shoeIndex, imageIndex);
+};
+
+//? displays product on main page!
+const displayProduct = async (i, imgIdx) => {
+    const productData = await fetchProductData();
+    let shoe = productData.shoes[i];
+    displayLargeImg.src = shoe.img.large[imgIdx];
+    displayThumbnail.innerHTML = shoe.img.thumbnail[imgIdx];
+    displayCompanyName.innerHTML = shoe.company;
+    displayShoeName.innerHTML = shoe.name;
+    displayShoeInfo.innerHTML = shoe.info;
+    displayCurrentPrice.innerHTML = `$${
+        shoe.price.ordinary - shoe.price.ordinary * shoe.price.discount
+    }`;
+    displayDiscount.innerHTML = `${shoe.price.discount * 100} %`;
+    displayOrdinaryPrice.innerHTML = `$${shoe.price.ordinary}`;
+    displayQuantityCount.innerHTML = `${quantityCount}`;
+};
+
+const activeImgSlider = async (value) => {
+    const productData = await fetchProductData();
+    for (let i = 0; i < displayActiveThumb.length; i++) {
+        if (displayActiveThumb[i].classList.contains("checked")) {
+            activeImageIndex = i;
+        }
+        displayActiveThumb[i].classList.remove("checked");
+    }
+    activeImageIndex += value;
+    if (activeImageIndex >= displayActiveThumb.length) activeImageIndex = 0;
+    if (activeImageIndex < 0) activeImageIndex = displayActiveThumb.length - 1;
+    displayActiveThumb[activeImageIndex].classList.add("checked");
+    displayActiveImg.src =
+        productData.shoes[activeImageIndex].img.large[activeImageIndex];
+};
+// TODO | Fetch() json file
+const fetchProductData = async () => {
+    const response = await fetch("products.json");
+    if (response.status !== 200) throw new Error("Could not fetch data");
+    const productData = await response.json();
+    return productData;
+};
+
 // TODO | Event listners here
 window.addEventListener("resize", () => {
     if (
@@ -124,6 +179,7 @@ document.body.addEventListener("click", (e) => {
             break;
         case "active-img-btn": //? Zooms in on product
             largerImageContainer.classList.toggle("active");
+            displayActiveProduct(shoeIndex, false);
             toggleDarkOverlay();
             break;
         case "minus-icon": //? Decrease quantity to add to cart
@@ -142,6 +198,18 @@ document.body.addEventListener("click", (e) => {
             e.target.parentElement.parentElement.remove();
             cartCount--;
             displayCartCount.textContent = cartCount;
+            break;
+        case "thumbnail":
+            checkThumbnail(e.target);
+            break;
+        case "thumbnail-active":
+            displayActiveProduct(false, e.target);
+            break;
+        case "next-btn":
+            activeImgSlider(1);
+            break;
+        case "prev-btn":
+            activeImgSlider(-1);
             break;
         default:
             break;
